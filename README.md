@@ -6,7 +6,7 @@ To get started, you must first make sure that you have all the dependencies inst
 conda env create -n NAME_OF_ENV -f psychopy-env.yml
 ```
 
-where NAME_OF_ENV is replaced by your preferred environment name. After this, you can active the conda environment by running the following command:
+where ```NAME_OF_ENV``` is replaced by your preferred environment name. After this, you can active the conda environment by running the following command:
 ```
 conda activate NAME_OF_ENV
 ```
