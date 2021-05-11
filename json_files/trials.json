@@ -10,5 +10,119 @@
         "left_stimulus_word": "blue",
         "center_stimulus_word": "blue",
         "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "yellow",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "blue"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "green"
+    },
+    {
+        "center_stimulus_color": "green",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "green",
+        "right_stimulus_word": "green"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "green"
+    },
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "green"
+    }, 
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "yellow",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "red",
+        "left_stimulus_word": "red",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "yellow"
+    },
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "green"
+    },
+    {
+        "center_stimulus_color": "green",
+        "left_stimulus_word": "green",
+        "center_stimulus_word": "green",
+        "right_stimulus_word": "red"
+    },
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "blue"
+    },
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "blue"
+    },
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "green"
+    },    
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus_word": "yellow",
+        "center_stimulus_word": "red",
+        "right_stimulus_word": "blue"
+    },
+    {
+        "center_stimulus_color": "green",
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "green",
+        "right_stimulus_word": "green"
     }
 ]
