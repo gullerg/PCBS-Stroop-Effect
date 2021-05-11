@@ -36,4 +36,10 @@ python stroop_test.py
 This will prompt the user to enter their name and guide them through the experiment. Once all the trials as specified in the ```trials.json``` have been completed, the results of the experiment will be exported to a ```.csv``` file that can later be analysed.
 
 ## Analyse the results
-To analyse the results obtained, 
+To do a rough analysis of the results obtained, the script ```analyse_data.py``` can be executed using the following command:
+
+```
+python analyse_data.py
+```
+
+If no argument is provided, the latest results file will be used; otherwise, the relative path (from the root folder) to a results file can be specified to analyse a specific file.
