@@ -1,13 +1,11 @@
 from psychopy import event, core, data, gui, visual
 import json
 
-config_file = open('config.json', "r")
-config = json.load(config_file)
-config_file.close()
+from utils import *
 
-trials_file = open('trials.json', "r")
-trials = json.load(trials_file)
-trials_file.close()
+
+config = load_json('json_files/config.json')
+trials = load_json('json_files/trials.json')
 
 def get_participant_info():
     participant_information = {
@@ -26,9 +24,9 @@ def create_window(color="white", fullscreen=True):
     event.Mouse(visible=False)
     return window
 
-def introduce_experiment():
+def write_on_screen(text):
     introduction = visual.TextStim(window, 
-                        text=config["introduction"],
+                        text=config[text],
                         anchorHoriz='center', 
                         color="Black",
                         anchorVert='center')
@@ -49,10 +47,11 @@ def generate_stimuli(trial):
 
     return left_stimulus, center_stimulus, right_stimulus
 
-def start_experiment():
-    results = []
-    timer = core.Clock()
-    for trial in trials:
+def start_practise_trials():
+    trial = trials[0]
+    correct = False
+    while(not correct):
+        core.wait(.5)
 
         left_stimulus, right_stimulus, center_stimulus = generate_stimuli(trial)
 
@@ -62,7 +61,28 @@ def start_experiment():
 
         window.flip()
 
-        core.wait(.6)
+        keys = event.waitKeys(keyList=["d", "k"])
+        key_pressed = keys[0]
+
+        correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus"] else "k"
+        event.clearEvents()
+
+        if key_pressed == correct_key:
+            correct = True
+
+def start_experiment(participant_info):
+    results = []
+    timer = core.Clock()
+    for trial in trials:
+        core.wait(.5)
+
+        left_stimulus, right_stimulus, center_stimulus = generate_stimuli(trial)
+
+        left_stimulus.draw()
+        center_stimulus.draw()
+        right_stimulus.draw()
+
+        window.flip()
         timer.reset()
 
         keys = event.waitKeys(keyList=["d", "k"])
@@ -78,13 +98,21 @@ def start_experiment():
             "match": int(trial["center_stimulus_color"] == trial["center_stimulus"])
         }
 
-        print(result)
+        results.append(result)
+        event.clearEvents()
+    return results
+
 
 
 if __name__ == "__main__":
     participant_info = get_participant_info()
     window = create_window()
-    introduce_experiment()
-    start_experiment()
+    write_on_screen("introduction")
+    write_on_screen("start_practice")
+    start_practise_trials()
+    write_on_screen("start_experiment")
+    results = start_experiment(participant_info)
+    export_results(results, participant_info, config["dir_to_store_results"])
+    write_on_screen("experiment_done")
 
 

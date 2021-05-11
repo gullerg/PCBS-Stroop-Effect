@@ -1,5 +1,9 @@
 {
     "introduction": "Welcome to Gustav Grimberg's final project for PCBS!\n\n In this project, the stroop effect is tested.\n To continue, please press any button.",
+    "start_practice": "Start practice", 
+    "start_experiment": "Start experiment",
+    "experiment_done": "Experiment done",
+    "dir_to_store_results": "./results",
     "position": {
         "left": [-0.2, 0],
         "center": [0, 0],
