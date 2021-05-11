@@ -1,14 +1,14 @@
 [
     {
         "center_stimulus_color": "blue",
-        "left_stimulus": "blue",
-        "center_stimulus": "blue",
-        "right_stimulus": "green"
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "green"
     }, 
     {
         "center_stimulus_color": "yellow",
-        "left_stimulus": "blue",
-        "center_stimulus": "blue",
-        "right_stimulus": "yellow"
+        "left_stimulus_word": "blue",
+        "center_stimulus_word": "blue",
+        "right_stimulus_word": "yellow"
     }
 ]

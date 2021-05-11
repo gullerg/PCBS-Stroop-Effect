@@ -1,15 +1,11 @@
-from psychopy import event, core, data, gui, visual
-import json
-
-from utils import *
-
+from psychopy import event, core, gui, visual
+from utils import load_json, export_results
 
 config = load_json('json_files/config.json')
 trials = load_json('json_files/trials.json')
 
 def get_participant_info():
     participant_information = {
-        "Age": "",
         "Name": ""
     }
     participant_info_dialog = gui.DlgFromDict(title='PCBS Project - Stroop effect', dictionary=participant_information)
@@ -24,25 +20,30 @@ def create_window(color="white", fullscreen=True):
     event.Mouse(visible=False)
     return window
 
-def write_on_screen(text):
-    introduction = visual.TextStim(window, 
-                        text=config[text],
+def write_on_screen(text_category, wait_key_pressed=True, string_to_insert=None):
+    text = config[text_category]
+    if string_to_insert != None:
+        text = text.format(string_to_insert)
+    text_to_write = visual.TextStim(window, 
+                        text=text,
                         anchorHoriz='center', 
                         color="Black",
+                        height=0.06,
                         anchorVert='center')
-    introduction.draw()
+    text_to_write.draw()
     window.flip()
-    event.waitKeys()
+    if wait_key_pressed:
+        event.waitKeys(keyList=["space"])
     event.clearEvents()
 
 def generate_stimuli(trial):
-    left_stimulus = visual.TextStim(window, text=trial["left_stimulus"], color="Black")
+    left_stimulus = visual.TextStim(window, text=trial["left_stimulus_word"], color="Black")
     left_stimulus.pos = config["position"]["left"]
 
-    center_stimulus = visual.TextStim(window, text=trial["center_stimulus"], color=trial["center_stimulus_color"])
+    center_stimulus = visual.TextStim(window, text=trial["center_stimulus_word"], color=trial["center_stimulus_color"])
     center_stimulus.pos = config["position"]["center"]
 
-    right_stimulus = visual.TextStim(window, text=trial["right_stimulus"], color="Black")
+    right_stimulus = visual.TextStim(window, text=trial["right_stimulus_word"], color="Black")
     right_stimulus.pos = config["position"]["right"]
 
     return left_stimulus, center_stimulus, right_stimulus
@@ -50,6 +51,7 @@ def generate_stimuli(trial):
 def start_practise_trials():
     trial = trials[0]
     correct = False
+    window.flip(clearBuffer=True)
     while(not correct):
         core.wait(.5)
 
@@ -64,17 +66,20 @@ def start_practise_trials():
         keys = event.waitKeys(keyList=["d", "k"])
         key_pressed = keys[0]
 
-        correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus"] else "k"
+        correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus_word"] else "k"
         event.clearEvents()
 
         if key_pressed == correct_key:
             correct = True
+        else:
+            write_on_screen("wrong_key", wait_key_pressed=False)
+            core.wait(2)
 
 def start_experiment(participant_info):
-    results = []
-    timer = core.Clock()
+    trial_results = []
+    window.flip(clearBuffer=True)
     for trial in trials:
-        core.wait(.5)
+        core.wait(1)
 
         left_stimulus, right_stimulus, center_stimulus = generate_stimuli(trial)
 
@@ -83,26 +88,24 @@ def start_experiment(participant_info):
         right_stimulus.draw()
 
         window.flip()
-        timer.reset()
+        timer = core.Clock()
 
         keys = event.waitKeys(keyList=["d", "k"])
-        resp_time = timer.getTime()
-
+        response_time = timer.getTime()
         key_pressed = keys[0]
 
-        correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus"] else "k"
+        correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus_word"] else "k"
 
-        result = {
+        trail_result = {
             "correct": int(key_pressed == correct_key), 
-            "response_time": resp_time, 
-            "match": int(trial["center_stimulus_color"] == trial["center_stimulus"])
+            "response_time": response_time, 
+            "congruent": int(trial["center_stimulus_color"] == trial["center_stimulus_word"])
         }
-
-        results.append(result)
+        trial_results.append(trail_result)
+        
         event.clearEvents()
-    return results
-
-
+        window.flip(clearBuffer=True)
+    return trial_results
 
 if __name__ == "__main__":
     participant_info = get_participant_info()
@@ -111,8 +114,6 @@ if __name__ == "__main__":
     write_on_screen("start_practice")
     start_practise_trials()
     write_on_screen("start_experiment")
-    results = start_experiment(participant_info)
-    export_results(results, participant_info, config["dir_to_store_results"])
-    write_on_screen("experiment_done")
-
-
+    trail_results = start_experiment(participant_info)
+    path_to_results = export_results(trail_results, participant_info, config["dir_to_store_results"])
+    write_on_screen("experiment_done", string_to_insert=path_to_results)

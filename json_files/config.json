@@ -1,9 +1,10 @@
 {
-    "introduction": "Welcome to Gustav Grimberg's final project for PCBS!\n\n In this project, the stroop effect is tested.\n To continue, please press any button.",
-    "start_practice": "Start practice", 
-    "start_experiment": "Start experiment",
-    "experiment_done": "Experiment done",
-    "dir_to_store_results": "./results",
+    "introduction": "Welcome to Gustav Grimberg's final project for PCBS!\nIn this project, the Stroop effect is tested.\n To continue, please press the space button.",
+    "start_practice": "Before we start, let us quickly practise with one example trial. First, make sure that you have one finger on the 'd' button and another on the 'k' button. When the trial starts, you are presented with three words. The word in the center has a colour, and this colour corresponds to the word on either the left or right of the word in the center. You must indicate which one that is. If the correct answer is on the left, press 'd', and if it is on the right, press 'k'. When you are ready, press space.", 
+    "start_experiment": "Great, you got it! Now, let's begin with the actual experiment. Press space when you are ready.",
+    "experiment_done": "The experiment is done - good job! You can find the data for this run in the following location: {0}.\nPress space to close the window.",
+    "wrong_key": "You did not press the right key - try again!",
+    "dir_to_store_results": "results",
     "position": {
         "left": [-0.2, 0],
         "center": [0, 0],
