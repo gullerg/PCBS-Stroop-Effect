@@ -24,5 +24,6 @@ data = pd.read_csv(path_to_data)
 
 sns.set_theme(style="ticks")
 
+#todo: save the plot after it's been created.
 g = sns.catplot(x="congruent", y="response_time", hue="correct", data=data)
 plt.show()
