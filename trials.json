@@ -1,0 +1,14 @@
+[
+    {
+        "center_stimulus_color": "blue",
+        "left_stimulus": "blue",
+        "center_stimulus": "blue",
+        "right_stimulus": "green"
+    }, 
+    {
+        "center_stimulus_color": "yellow",
+        "left_stimulus": "blue",
+        "center_stimulus": "blue",
+        "right_stimulus": "yellow"
+    }
+]

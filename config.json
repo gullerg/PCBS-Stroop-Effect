@@ -1,3 +1,8 @@
 {
-    "introduction": "Welcome to Gustav Grimberg's final project for PCBS!\n\n In this project, the stroop effect is tested.\n To continue, please press any button."
+    "introduction": "Welcome to Gustav Grimberg's final project for PCBS!\n\n In this project, the stroop effect is tested.\n To continue, please press any button.",
+    "position": {
+        "left": [-0.2, 0],
+        "center": [0, 0],
+        "right": [0.2, 0]
+    }
 }
