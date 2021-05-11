@@ -1,7 +1,7 @@
 # PCBS-Stroop-Effect
 This repository contains an implementation to test the Stroop effect in individuals. 
 
-**Table of Contents**
+## Table of Contents
 - [Getting started](#getting-started)
 - [How to run](#how-to-run)
 - [Analyse the results](#analyse-the-results)
