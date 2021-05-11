@@ -97,9 +97,9 @@ def start_experiment(participant_info):
         correct_key = "d" if trial["center_stimulus_color"] == trial["left_stimulus_word"] else "k"
 
         trail_result = {
-            "correct": int(key_pressed == correct_key), 
+            "correct": key_pressed == correct_key, 
             "response_time": response_time, 
-            "congruent": int(trial["center_stimulus_color"] == trial["center_stimulus_word"])
+            "congruent": trial["center_stimulus_color"] == trial["center_stimulus_word"]
         }
         trial_results.append(trail_result)
         
