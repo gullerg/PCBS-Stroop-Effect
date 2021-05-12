@@ -1,5 +1,5 @@
 # PCBS-Stroop-Effect
-This repository contains an implementation to test the Stroop effect in individuals. The Stroop test is meant to show how congruent and incongruent stimuli affect reaction times and was proposed by John R. Stroop in 1935. Here, the effect is tested using matches and mismatches between words of colours and colours of the words.
+This repository contains an implementation to test the Stroop effect in individuals. The Stroop test is meant to show how congruent and incongruent stimuli affect reaction times and was proposed by John R. Stroop in 1935. Here, the effect is tested using matches and mismatches between words for colours that are printed with different colours.
 
 ## Table of Contents
 - [Getting started](#getting-started)
