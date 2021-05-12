@@ -5,6 +5,7 @@ This repository contains an implementation to test the Stroop effect in individu
 - [Getting started](#getting-started)
 - [How to run](#how-to-run)
 - [Analyse the results](#analyse-the-results)
+- [Final remarks](#final-remarks)
 
 
 ## Getting started
