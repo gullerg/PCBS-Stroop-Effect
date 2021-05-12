@@ -5,6 +5,8 @@
     "experiment_done": "The experiment is done - good job! You can find the data for this run in the following location: {0}.\nPress space to close the window.",
     "wrong_key": "You did not press the right key - try again!",
     "dir_to_store_results": "results",
+    "dir_to_store_plots": "plots",
+    "dir_to_store_sum_stats": "stats",
     "position": {
         "left": [-0.2, 0],
         "center": [0, 0],

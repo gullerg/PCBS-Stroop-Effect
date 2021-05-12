@@ -130,3 +130,5 @@ dmypy.json
 
 # Results folder
 results/
+plots/
+stats/

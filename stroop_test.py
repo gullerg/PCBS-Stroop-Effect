@@ -1,3 +1,8 @@
+"""
+Main file to run the experiment. 
+Running this script will create a window, based on the config and trials files,
+that the user can interact with during the experiment.
+"""
 from psychopy import event, core, gui, visual
 from utils import load_json, export_results
 
@@ -46,22 +51,20 @@ def generate_stimuli(trial):
     right_stimulus = visual.TextStim(window, text=trial["right_stimulus_word"], color="Black")
     right_stimulus.pos = config["position"]["right"]
 
-    return left_stimulus, center_stimulus, right_stimulus
+    left_stimulus.draw()
+    center_stimulus.draw()
+    right_stimulus.draw()
 
-def start_practise_trials():
+    window.flip()
+
+def start_practice_trials():
     trial = trials[0]
-    correct = False
+    trial_successful = False
     window.flip(clearBuffer=True)
-    while(not correct):
+    while(not trial_successful):
         core.wait(.5)
 
-        left_stimulus, right_stimulus, center_stimulus = generate_stimuli(trial)
-
-        left_stimulus.draw()
-        center_stimulus.draw()
-        right_stimulus.draw()
-
-        window.flip()
+        generate_stimuli(trial)
 
         keys = event.waitKeys(keyList=["d", "k"])
         key_pressed = keys[0]
@@ -70,24 +73,19 @@ def start_practise_trials():
         event.clearEvents()
 
         if key_pressed == correct_key:
-            correct = True
+            trial_successful = True
         else:
             write_on_screen("wrong_key", wait_key_pressed=False)
             core.wait(2)
 
-def start_experiment(participant_info):
+def start_experiment():
     trial_results = []
     window.flip(clearBuffer=True)
     for trial in trials:
         core.wait(1)
 
-        left_stimulus, right_stimulus, center_stimulus = generate_stimuli(trial)
+        generate_stimuli(trial)
 
-        left_stimulus.draw()
-        center_stimulus.draw()
-        right_stimulus.draw()
-
-        window.flip()
         timer = core.Clock()
 
         keys = event.waitKeys(keyList=["d", "k"])
@@ -112,8 +110,8 @@ if __name__ == "__main__":
     window = create_window()
     write_on_screen("introduction")
     write_on_screen("start_practice")
-    start_practise_trials()
+    start_practice_trials()
     write_on_screen("start_experiment")
-    trail_results = start_experiment(participant_info)
-    path_to_results = export_results(trail_results, participant_info, config["dir_to_store_results"])
+    trial_results = start_experiment()
+    path_to_results = export_results(trial_results, participant_info, config["dir_to_store_results"])
     write_on_screen("experiment_done", string_to_insert=path_to_results)
