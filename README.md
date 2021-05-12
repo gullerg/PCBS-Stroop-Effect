@@ -45,8 +45,8 @@ python analyse_data.py
 
 If no argument is provided, the latest results file will be used; otherwise, the relative path (from the root folder) to a results file can be specified to analyse a specific file. There will two ouputs from the data analysis script: 
 
-- A plot of the data (default location is the 'plots' folder, but this can be configured in the ```json_files\config.json``` file)
-- A .txt file with some summary statistics (default location is the 'stats' folder)
+- A plot of the data (default location is the ```plots``` folder, but this can be configured in the ```json_files\config.json``` file)
+- A .txt file with some summary statistics (default location is the ```stats``` folder)
 
 ## Final remarks
 The scripts in this repo all worked when they were last tested on 5/12/2021, using a windows laptop running Windows 10 Pro with Python 3.6. To avoid any errors, please follow the steps as outlined in the README.md and use the default configuration and trials provided.
